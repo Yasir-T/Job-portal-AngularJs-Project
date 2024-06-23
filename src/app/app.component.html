@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets\naurkihome.png" height="40px" width="62px" alt="" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/jobs">Jobs</a>
+                </li>
+                <li class="nav-item">
+                <!-- <li class="nav-item" *ngIf="loggedUser?.userRole=='Employer'"> -->
+                    <a class="nav-link" routerLink="/new-job">Create Job Alert</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" routerLink="/job-listing">Job Applicant List</a>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                <button *ngIf="!isLoggedUser" class="btn btn-outline-primary round-button mx-2" type="button" routerLink="/login">Login</button>
+                <button *ngIf="!isLoggedUser" class="btn btn-success round-button" type="button" routerLink="/register">Register</button>
+                <button *ngIf="isLoggedUser" class="btn btn-link round-button" >
+                    <strong *ngIf="isLoggedUser">{{loggedUser.userName}}</strong>
+                </button>
+                <button *ngIf="isLoggedUser" class="btn btn-danger round-button" type="button" (click)="logOff()">LogOut</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid body-background">
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+    <section class="text-center">
+        <h4>Create new Job Alert</h4>
+    </section>
+    <div class="row mt-3 mb-4">
+        <div class="col-3">
+            <label for="">Job Id</label>
+            <input type="number" name="JobId" id="JobId" [(ngModel)]="createJobObj.JobId" class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="">Job Name</label>
+            <input type="text" name="JobName" id="JobName" [(ngModel)]="createJobObj.JobName" class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="">Employer Id</label>
+            <input type="number" name="EmployerId" id="EmployerId" [(ngModel)]="createJobObj.EmployerId"
+                class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="">Select Category</label>
+            <select name="CategoryId" id="CategoryId" [(ngModel)]="createJobObj.CategoryId" class="form-control">
+                <option value="" selected disabled>Select Category Id</option>
+                <option value="{{item.jobCategoryId}}" *ngFor="let item of categoriList">{{item.categoryName}}</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-3">
+            <select style="margin-top: 23px;" name="Experience" id="Experience" [(ngModel)]="createJobObj.Experience"
+                class="form-control">
+                <option value="" selected disabled>Select Experice</option>
+                <option value="Fresher">Fresher</option>
+                <option value="Experienced">Experienced</option>
+            </select>
+        </div>
+
+        <div class="col-3">
+            <label for="">Location</label>
+            <input type="text" name="Location" id="Location" [(ngModel)]="createJobObj.Location" class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="">JobDescription</label>
+            <input type="text" name="JobDescription" id="JobDescription" [(ngModel)]="createJobObj.JobDescription"
+                class="form-control">
+        </div>
+        <div class="col-3">
+            <label for="">Package</label>
+            <input type="text" name="Package" id="Package" [(ngModel)]="createJobObj.Package" class="form-control">
+        </div>
+    </div>
+    <div class="row mt-3 mb-4">
+        <div class="col text-center">
+            <button class="btn btn-secondary" (click)="createNewJob()" type="button">Create</button>
+        </div>
+    </div>
+</div>
